@@ -18,5 +18,5 @@ jobs:
       run: |
         docker build -t robertorodriguez98/curso_docker sample-packages/docker
         echo ${{secrets.TOKEN_GITHUB}} | docker login ghcr.io -u robertorodriguez98 --password-stdin
-        docker tag 1 ghcr.io/robertorodriguez98/curso_docker:latest
+        docker tag robertorodriguez98/curso_docker ghcr.io/robertorodriguez98/curso_docker:latest
         docker push ghcr.io/robertorodriguez98/curso_docker:latest
