@@ -17,5 +17,4 @@ jobs:
     - name: Build the Docker image
       run: |
         echo ${{secrets.TOKEN_GITHUB}} | docker login ghcr.io -u robertorodriguez98 --password-stdin
-        docker tag curso_docker ghcr.io/robertorodriguez98/curso_docker:latest
         docker push ghcr.io/robertorodriguez98/curso_docker:latest
