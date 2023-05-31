@@ -16,6 +16,6 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
-        echo $TOKEN_GITHUB | docker login ghcr.io -u robertorodriguez98 --password-stdin
+        echo ${{secrets.TOKEN_GITHUB}} | docker login ghcr.io -u robertorodriguez98 --password-stdin
         docker tag IMAGE_ID ghcr.io/robertorodriguez98/curso_docker:latest
         docker push ghcr.io/robertorodriguez98/curso_docker:latest
