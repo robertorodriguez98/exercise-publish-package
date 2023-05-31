@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: |
+        echo $TOKEN_GITHUB | docker login ghcr.io -u robertorodriguez98 --password-stdin
+        docker tag IMAGE_ID ghcr.io/robertorodriguez98/curso_docker:latest
+        docker push ghcr.io/robertorodriguez98/curso_docker:latest
